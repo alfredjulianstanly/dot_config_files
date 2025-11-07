@@ -47,3 +47,8 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnosti
 -- Format file
 vim.keymap.set("n", "<leader>f", function()
   vim.lsp.buf.format({ async = true })end, { desc = "Format file" })
+
+-- Toggle inline hints
+vim.keymap.set('n', '<leader>hi', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+end, { desc = "Toggle inlay hints" })
